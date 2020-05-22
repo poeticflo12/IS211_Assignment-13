@@ -1,0 +1,102 @@
+
+<style>
+    table{
+        background-color: #fff;
+        width:100%;
+        padding:20px !important;
+    }
+    th, td{
+        padding:10px 20px !important;
+    }
+    
+    .container-contents{
+        width:80%;
+        margin: 0 auto;
+    }
+    .task{
+        width:500px;
+        margin:0 auto;
+    }
+    .new-task{
+        color:#00C4A7;
+        font-size: 1.5em !important;
+        padding:50px 10px 10px 10px;
+    }
+</style>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="container-contents">
+        <h1 style="color:#00C4A7;font-size:1.4em;">Student Marks</h1>
+        <table class="table is-hoverable is-striped">
+            <thead>
+                <!-- <th># ID</th> -->
+                <th>First Name</th>
+                <th>Second Name</th>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Option</th>
+            </thead>
+            <tbody>
+                {% for result in student_results%}
+                    <tr>
+                        <td>{{result[2]}}</td>
+                        <td>{{result[3]}}</td>
+                        <td>{{result[4]}}</td>
+                        <td>{{result[1]}}</td>
+                        {% if result %}<td><a href="marks/delete/{{result[0]}}">Delete</a></td>{%endif%}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="container-contents">
+        <h1 style="color:#00C4A7;font-size:1.4em;">Students</h1>
+            <table class="table is-hoverable is-striped">
+                <thead>
+                    <th># ID</th>
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    <th>Option</th>
+                </thead>
+                <tbody>
+                    {% for student in students%}
+                        <tr>
+                            <td>{{student[0]}}</td>
+                            <td>{{student[1]}}</td>
+                            <td>{{student[2]}}</td>
+
+                            {% if student %}<td><a href="student/delete/{{student[0]}}">Delete</a></td>{%endif%}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    <div class="container-contents">
+        <h1 style="color:#00C4A7;font-size:1.4em;">Quizzes</h1>
+        <table class="table is-hoverable is-striped">
+            <thead>
+                <th># ID</th>
+                <th>Subject</th>
+                <th>Date</th>
+                <th>Number of Questions</th>
+                <th>Option</th>
+            </thead>
+            <tbody>
+                {% for quiz in quizzes%}
+                    <tr>
+                        <td>{{quiz[0]}}</td>
+                        <td>{{quiz[1]}}</td>
+                        <td>{{quiz[2]}}</td>
+                        <td>{{quiz[3]}}</td>
+                        
+                        {% if quiz %}<td><a href="quiz/delete/{{quiz[0]}}">Delete</a></td>{%endif%}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+{% endblock %}

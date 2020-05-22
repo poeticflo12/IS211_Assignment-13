@@ -1,0 +1,60 @@
+<style>
+.log-in{
+    width:400px;
+    margin: 0 auto;
+    padding:50px 0;
+}
+</style>
+{% extends "base.html" %}
+{% block content%}
+<form action="{{url_for('marks')}}" method="post">
+        <div class="log-in">
+            <div class="field">
+                <label class="label">Student</label>
+                <div class="control">
+                    <div class="select">
+                    <select name="student">
+                        <option selected disabled>Select dropdown</option>
+                        {% for student in students%}
+                        <option value="{{student[0]}}">{{student[1]}} {{student[2]}}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label">Subject</label>
+                <div class="control">
+                    <div class="select">
+                    <select name="subject">
+                        <option selected disabled>Select dropdown</option>
+                        {% for quiz in quizzes%}
+                        <option value="{{quiz[0]}}">{{quiz[1]}}</option>
+                        {% endfor %}
+                    </select>
+                    </div>
+                </div>
+            </div>
+              
+              <div class="field">
+                <label class="label">Student Marks</label>
+                <div class="control">
+                  <input class="input" type="number" placeholder="Student Marks input" required name="marks">
+        
+                </div>
+                <!-- <p class="help is-danger">This email is invalid</p> -->
+              </div>
+              
+        
+              
+              <div class="field is-grouped">
+                <div class="control">
+                  <input type="submit" value="Add Student Marks" class="button is-link">
+                </div>
+                <!-- <div class="control">
+                  <input type="clear" value="Clear" class="button is-link">
+                </div> -->
+              </div>
+        </div>  
+        </form>
+{% endblock %}

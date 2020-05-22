@@ -1,0 +1,44 @@
+<style>
+.log-in{
+    width:400px;
+    margin: 0 auto;
+    padding:50px 0;
+}
+</style>
+{% extends "base.html" %}
+{% block content%}
+<form action="{{url_for('quiz')}}" method="post">
+        <div class="log-in">
+              <div class="field">
+                <label class="label">Subject</label>
+                <div class="control">
+                  <input class="input" type="text" placeholder="Subject input" required name="subject">
+                </div>
+                <!-- <p class="help is-danger">This username is available</p> -->
+              </div>
+              <div class="field">
+                    <label class="label">No of Questions</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="No of questions input" required name="questions">
+                    </div>
+                    <!-- <p class="help is-danger">This username is available</p> -->
+                </div>
+                <div class="field">
+                    <label class="label">Date</label>
+                    <div class="control">
+                        <input class="input" type="date" placeholder="Date input" required name="date">
+                    </div>
+                    <!-- <p class="help is-danger">This username is available</p> -->
+                </div>
+                            
+              <div class="field is-grouped">
+                <div class="control">
+                  <input type="submit" value="Add Subject" class="button is-link">
+                </div>
+                <!-- <div class="control">
+                  <input type="clear" value="Clear" class="button is-link">
+                </div> -->
+              </div>
+        </div>  
+        </form>
+{% endblock %}

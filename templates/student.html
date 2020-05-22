@@ -1,0 +1,41 @@
+<style>
+.log-in{
+    width:400px;
+    margin: 0 auto;
+    padding:50px 0;
+}
+</style>
+{% extends "base.html" %}
+{% block content %}
+<form action="{{url_for('student')}}" method="post">
+    <div class="log-in">
+          <div class="field">
+            <label class="label">First Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="First Name input" required name="firstname">
+            </div>
+            <!-- <p class="help is-danger">This username is available</p> -->
+          </div>
+          
+          <div class="field">
+            <label class="label">Last Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Last Name input" required name="lastname">
+    
+            </div>
+            <!-- <p class="help is-danger">This email is invalid</p> -->
+          </div>
+          
+    
+          
+          <div class="field is-grouped">
+            <div class="control">
+              <input type="submit" value="Add Student" class="button is-link">
+            </div>
+            <!-- <div class="control">
+              <input type="clear" value="Clear" class="button is-link">
+            </div> -->
+          </div>
+    </div>  
+    </form>
+{% endblock %}

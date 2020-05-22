@@ -1,0 +1,71 @@
+
+<style>
+        table{
+            background-color: #fff;
+            width:100%;
+            padding:20px !important;
+        }
+        th, td{
+            padding:10px 20px !important;
+        }
+        
+        .container-contents{
+            width:80%;
+            margin: 0 auto;
+        }
+        .task{
+            width:500px;
+            margin:0 auto;
+        }
+        .new-task{
+            color:#00C4A7;
+            font-size: 1.5em !important;
+            padding:50px 10px 10px 10px;
+        }
+    </style>
+    {% extends "base.html" %}
+    
+    {% block content %}
+    <div class="container">
+        <div class="container-contents">
+            <h1 style="color:#00C4A7;font-size:1.4em;">Student Marks</h1>
+            <table class="table is-hoverable is-striped">
+                <thead>
+                    <!-- <th># ID</th> -->
+                    {% if current_user.is_anonymous %}
+                    <th>id</th>
+                    {%else%}
+                    <th>First Name</th>
+                    <th>Second Name</th>
+                    {%endif%}
+                    <th>Subject</th>
+                    <th>Marks</th>
+                    <th>Option</th>
+                </thead>
+                <tbody>
+                    {% if result%}
+                        <tr>
+                            {% if current_user.is_anonymous %}
+                            <td>{{result[5]}}</td>
+                            <td>{{result[4]}}</td>
+                            <td>{{result[1]}}</td>
+                            {% else %}
+                            <td>{{result[2]}}</td>
+                            <td>{{result[3]}}</td>
+                            <td>{{result[4]}}</td>
+                            <td>{{result[1]}}</td>
+                            {% if result %}<td><a href="marks/delete/{{result[0]}}">Delete</a></td>{%endif%}
+                            {%endif%}
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <th>No RESULTS</th>
+                        </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+        
+    </div>
+    {% endblock %}
